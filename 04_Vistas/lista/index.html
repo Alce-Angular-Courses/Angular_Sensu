@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es"> 
+
+      <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Hola Mundo</title>
+        <meta name="description" content="Hola Mundo con Angula JS">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+        <!-- Angular 1.6 -->
+       <script src="../../node_modules/angular/angular.js"></script>
+       <!-- Scripts de la aplicación -->
+       <script src="./js/appModule.js"></script>
+       <script src="./js/appController.js"></script>
+    </head>
+
+    <body ng-app="appMain" ng-controller="AppController as $ctrl">
+        <div class="container">
+
+            <ng-include src= "'./cabeza.partial.html'"></ng-include>
+
+            <!-- <div ng-include=" './cabeza.partial.html' "></div> -->
+
+            <article class="col-sm-9">
+                <form>
+                    <fieldset class="form-group">
+                        <label for="idea">Escribe una idea</label>
+                        <input id="idea" type="text"class="form-control"
+                            ng-model="$ctrl.sIdea">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <button class="btn btn-primary" ng-click="$ctrl.add()">Añadir</button>
+                    </fieldset>
+                </form>
+                <div>
+                    <ul>
+                        <li ng-repeat="idea in $ctrl.aIdeas track by $index">{{idea}} ({{$index+1}})</li>
+                    </ul>
+                    <p>Han sido {{$index}} ideas</p>
+                </div>
+            </article>   
+            <footer>
+                <p class="card">{{$ctrl.sAutor}} - 2017</p>
+            </footer>        
+        </div>
+    </body>
+
+</html>

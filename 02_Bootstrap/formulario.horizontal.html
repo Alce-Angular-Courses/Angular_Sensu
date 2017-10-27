@@ -15,68 +15,79 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <form role="form" class="form-horizontal">
-                    <div class="form-group">
+                <form role="form"> <!-- class="form-horizontal"> -->
+                    <div class="form-group row">
                         <label for="username" class="control-label col-sm-3">Nombre de usuario</label>
                         <div class="col-sm-9"><input id="username" type="text" class="form-control"></div>
                     </div>
                     
-                    <div class="form-group">
+                    <div class="form-group row">
                         <label for="email" class="control-label col-sm-3">E-mail</label>
                         <div class="col-sm-9"><input id="email" type="text" class="form-control"></div>
                     </div>             
         
-                    <div class="form-group">
+                    <div class="form-group row">
                         <label for="detalle" class="control-label col-sm-3">Detalle</label>
                         <div class="col-sm-9"><textarea id="detalle" class="form-control" rows="10"></textarea></div>
                     </div>
         
-                        <div class="form-group">
+                        <div class="form-group row">
                         <label for="passwd" class="control-label col-sm-3">Contraseña</label>
                         <div class="col-sm-9"><input id="passwd" type="password" class="form-control">      </div>
                     </div>
-        
-                    <div class="col-sm-3">
-                        <p class="text-right">Selecciona las opciones adecuadas</p>
-                    </div>
-                    <div class="col-sm-9">
-                        
-                        <div class="checkbox-inline">
-                            <label>
-                            <input type="checkbox" id="item-a" value="a"> Opción A
-                            </label>              
-                        </div>   
-                        <div class="checkbox-inline">
-                            <label>
-                            <input type="checkbox" id="item-b" value="b"> Opción B
-                            </label>              
+                    
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="text-right">Selecciona las opciones adecuadas</p>
                         </div>
-                        <div class="checkbox-inline">
+                        <div class="col-sm-9">
+                            
+                            <div class="checkbox-inline">
+                                <label>
+                                <input type="checkbox" id="item-a" value="a"> Opción A
+                                </label>              
+                            </div>   
+                            <div class="checkbox-inline">
+                                <label>
+                                <input type="checkbox" id="item-b" value="b"> Opción B
+                                </label>              
+                            </div>
+                            <div class="checkbox-inline">
+                                <label>
+                                <input type="checkbox" id="item-c" value="c"> Opción C
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="text-right">Selecciona una opción</p>
+                        </div>
+                        <div class="col-sm-9">              
+                            <div class="radio-inline">
                             <label>
-                            <input type="checkbox" id="item-c" value="c"> Opción C
+                                <input type="radio" name="opcionNumero" id="opcionPrimera" value="1" checked>
+                                Opción primera
                             </label>
-                        </div>
+                            </div>
+                            <div class="radio-inline">
+                            <label>
+                                <input type="radio" name="opcionNumero" id="opcionSegunda" value="2">
+                                Opción segunda
+                            </label>
+                            </div>
+                        </div>    
                     </div>
-                    <div class="clearfix"></div>
-                    <div class="col-sm-3">
-                        <p class="text-right">Selecciona una opción</p>
-                    </div>
-                    <div class="col-sm-9">              
-                        <div class="radio-inline">
-                        <label>
-                            <input type="radio" name="opcionNumero" id="opcionPrimera" value="1" checked>
-                            Opción primera
-                        </label>
+                    <div class="row">
+                        <div class="col-sm-3">
                         </div>
-                        <div class="radio-inline">
-                        <label>
-                            <input type="radio" name="opcionNumero" id="opcionSegunda" value="2">
-                            Opción segunda
-                        </label>
+                        <div class="col-sm-9"> 
+                            <button type="submit" class="btn btn-primary">Acceder</button>
                         </div>
-                    </div>
-                    </form>
-                </div>
+                    </div>                    
+                </form>
+            </div>
         </div>
     </div>
 </body>

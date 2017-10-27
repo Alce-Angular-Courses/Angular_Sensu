@@ -1,0 +1,14 @@
+<article>
+    <form>
+        <p>
+            <label for="inputNombre">Escribe tu nombre</label>
+            <input id="inputNombre" type="text" ng-model="$ctrl.inputNombre">
+        </p>
+        <p>
+            <button ng-click="$ctrl.borrar()">Borrar</button>
+        </p>
+    </form>
+    <p>
+        Hola {{$ctrl.inputNombre || 'Mundo'}}
+    </p>
+</article>  

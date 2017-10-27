@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es"> 
+
+      <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Hola Mundo</title>
+        <meta name="description" content="Hola Mundo con Angula JS">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+         <!-- Angular 1.6 -->
+        <script src="../../node_modules/angular/angular.js"></script>
+        <!-- Scripts de la aplicación -->
+        <script src="./js/appModule.js"></script>
+        <script src="./js/appRoot.js"></script>
+        <script src="./components/appCabeza.js"></script>
+        <script src="./components/appPie.js"></script>
+        <script src="./components/appForm.js"></script>
+    </head>
+
+    <body ng-app="appMain">
+    <!--elimino ng-controller="AppController as $ctrl" -->
+        <app-root></app-root>
+    </body>
+
+</html>
