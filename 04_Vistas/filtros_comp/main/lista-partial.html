@@ -1,0 +1,40 @@
+<form>
+    <p>
+        <label for="orden">Elije el orden que deseas</label>
+        <select id="orden" ng-model="$ctrl.orden">
+            <option value="nombre">Nombre</option>
+            <option value="apellido">Apellido</option>
+            <option value="pais">Pais</option>
+            <option value="fechaNacim">Fecha de Nacimiento</option>
+        </select>
+    </p>
+    <p>
+        <label for="genero" >Elije el genero literario que deseas</label>
+        <select id="genero" ng-model="$ctrl.genero">
+            <option value="">todos</option>
+            <option value="policiaco">Policiaco</option>
+            <option value="ciencia ficción">Ciencia Ficción</option>
+            <option value="fantástico">Fantástico</option>
+        </select>	        
+    </p>
+    <p><label>Campos a mostrar</label></p>
+    <p>	<label for="pais">Pais</label>
+        <input type="checkbox" id="pais"
+        ng-model="$ctrl.verPais"></p>
+    <p>	<label for="fecha">Fecha de nacimiento</label>
+        <input type="checkbox" id="fecha"
+        ng-model="$ctrl.verFecha"></p>
+
+</form>
+	
+<article>
+    <ul>	
+        <li ng-repeat="oAutor in $ctrl.aAutores | filter: $ctrl.genero | orderBy: $ctrl.orden">
+            <b>{{oAutor.nombre}} {{oAutor.apellido}}</b>				 
+            {{$ctrl.verPais ? ' - ' + oAutor.pais : ''}} 
+            {{$ctrl.verFecha ? '- Nacido en ' + (oAutor.fechaNacim | date:'yyyy') : ''}}
+            - Genero: <span ng-repeat="genero in oAutor.generos">
+            {{ genero }}{{ !$last ? ", " : "."}} <span>
+        </li>
+    </ul>	
+</article>

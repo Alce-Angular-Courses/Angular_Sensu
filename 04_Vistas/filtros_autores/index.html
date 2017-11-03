@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Hola Mundo</title>
+    <meta name="description" content="Hola Mundo con Angula JS">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <!-- Angular 1.6 -->
+    <script src="../../node_modules/angular/angular.js"></script>
+    <script src="../../node_modules/angular-i18n/angular-locale_es-es.js"></script>
+    <!-- Scripts de la aplicación -->
+    <script src="./js/appModule.js"></script>
+    <script src="./js/appController.js"></script>
+    <style>
+        footer {
+            margin-top: 4em;
+            border-top: 1px solid blue
+        }
+    </style>
+</head>
+
+<body ng-app="appMain" ng-controller="AppController as $ctrl">
+    <div class="container">
+        <div class="row">
+            <header class="col">
+                <h1>{{$ctrl.sTitulo}}</h1>
+            </header>
+        </div>
+        <div class="row">
+            <article class="col-6">
+                <header>
+                    <h2>Selección de Autores</h2>
+                </header>
+                <form>
+                    <fieldset class="form-group">
+                        <label for="orden">Elije el orden que deseas</label>
+                        <select class="form-control" name="orden" id="orden"
+                            ng-model="$ctrl.orden">
+                            <option value="nombre">Nombre</option>
+                            <option value="apellido">Apellido</option>
+                            <option value="pais">Pais</option>
+                            <option value="fechaNacim">Fecha de Nacimiento</option>
+                        </select>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="genero" >Elije el genero literario que deseas</label>
+                        <select class="form-control" name="genero" id="genero"
+                            ng-model="$ctrl.genero">
+                            <option value="">todos</option>
+                            <option value="policiaco">Policiaco</option>
+                            <option value="ciencia ficción">Ciencia Ficción</option>
+                            <option value="fantástico">Fantástico</option>
+                        </select>	        
+                    </fieldset>
+                    <fieldset><label>Campos a mostrar</label></fieldset>
+                    <fieldset class="form-check">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" 
+                        name="pais" id="pais" ng-model="$ctrl.verPais">
+                        Pais
+                      </label>
+                    </fieldset>
+                    <fieldset class="form-check">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" 
+                        name="fecha" id="fecha" ng-model="$ctrl.verFecha">
+                        Fecha de nacimiento
+                      </label>
+                    </fieldset>
+                </form>
+            </article>          
+            <section class="col-5">
+                <ul>	
+                    <li ng-repeat="oAutor in $ctrl.aAutores | filter: $ctrl.genero | orderBy: $ctrl.orden">
+                        <b>{{oAutor.nombre}} {{oAutor.apellido}}</b>				 
+                        {{$ctrl.verPais ? ' - ' + oAutor.pais : ''}} 
+                        {{$ctrl.verFecha ? '- Nacido en ' + (oAutor.fechaNacim | date:'yyyy') : ''}}
+                        - Genero: <span ng-repeat="genero in oAutor.generos">
+                        {{ genero }}{{ !$last ? ", " : "."}} <span>
+                    </li>
+                </ul>
+            </section>
+
+        </div>   
+        
+        <div class="row">
+            <footer class="col">
+                <p>{{$ctrl.sAutor}} - {{$ctrl.dFecha | date:"yyyy"}}</p>
+            </footer>
+        </div>
+
+    </div>
+    
+</body>
+</html>
