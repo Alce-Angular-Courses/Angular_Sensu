@@ -37,3 +37,34 @@ Ejemplos de Hola Mundo
 - This semántico en las funciones arrow
 - Clases en JS
 - Promesas
+
+## Día 3 ##
+
+Bootstrap 4. Novedades
+
+Preprocesadores de CSS. Sass.
+
+- Concepto. Tipos de figheros
+- Instalación. Prerequisitos. Ruby. Sass
+- Elementos básicos. Variables. Anidamiento. Mixines (Funciones)
+
+Bootstrap 4. Rejilla (Grid). Comportamiento Responsive
+
+## Día 4 ##
+
+Elementos de CSS en Bootstrap 4
+
+- Estilos de los elementos HTML
+- Tablas
+- Formularios
+
+Vistas en Angular JS. Programación declarativa. Directivas.
+
+- Doble binding
+- Directivas estructurales
+  - ngRepeat
+  - ngInclude
+  - ngIf. Alternativas CSS: ngShow y ngHide
+
+
+## Día 5 ##

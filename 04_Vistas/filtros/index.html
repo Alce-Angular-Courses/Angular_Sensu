@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Hola Mundo</title>
+    <meta name="description" content="Hola Mundo con Angula JS">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <!-- Angular 1.6 -->
+    <script src="../../node_modules/angular/angular.js"></script>
+    <script src="../../node_modules/angular-i18n/angular-locale_es-es.js"></script>
+    <!-- Scripts de la aplicación -->
+    <script src="./js/appModule.js"></script>
+    <script src="./js/appController.js"></script>
+    <style>
+        footer {
+            margin-top: 4em;
+            border-top: 1px solid blue
+        }
+   
+    </style>
+</head>
+
+<body ng-app="appMain" ng-controller="AppController as $ctrl">
+    <div class="container">
+        <div class="row">
+            <header class="col">
+                <h1>{{$ctrl.sTitulo}}</h1>
+            </header>
+        </div>
+        <div class="row">
+            <article class="col">
+                <p>{{$ctrl.sTexto}}</p>
+                <p>{{$ctrl.sTexto | uppercase}}</p>
+                <p>{{$ctrl.sTexto | lowercase}}</p>    
+                <p>El precio es {{$ctrl.nNumber | currency}}</p>    
+                <p>El número es {{$ctrl.nNumber | number:0}}</p>   
+                <p>La fecha es {{$ctrl.dFecha | date:"fullDate"}}</p>     
+            </article>                          
+        </div>   
+        
+        <div class="row">
+            <footer class="col">
+                <p>{{$ctrl.sAutor}} - {{$ctrl.dFecha | date:"yyyy"}}</p>
+            </footer>
+        </div>
+
+    </div>
+    
+</body>
+</html>

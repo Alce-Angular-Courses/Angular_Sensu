@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Hola Mundo</title>
+    <meta name="description" content="Hola Mundo con Angula JS">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <!-- Angular 1.6 -->
+    <script src="../../node_modules/angular/angular.js"></script>
+    <script src="../../node_modules/angular-sanitize/angular-sanitize.js"></script>
+    <!-- Scripts de la aplicación -->
+    <script src="./js/appModule.js"></script>
+    <script src="./js/appController.js"></script>
+    <style>
+        .compacto {
+            height: 4em;
+            background-color: maroon;
+        }
+        .espacio {
+            height: 2em;
+        }
+        .claro {
+            height: 4em;
+            background-color: papayawhip
+        }
+    </style>
+</head>
+
+<body ng-app="appMain" ng-controller="AppController as $ctrl">
+    <div class="container">
+        <div class="row">
+            <header class="col">
+                <h1>{{$ctrl.sTitulo}}</h1>
+            </header>
+        </div>
+        <div class="row">
+            <article class="col">
+                <p>Ejemplo de variable html interpolada con {{}}}</p>
+                <div>{{$ctrl.sTexto}}</div>
+                <p>Ejemplo de variable html interpolada con ngBind</p>
+                <div ng-bind="$ctrl.sTexto"></div>
+                <p>Ejemplo de variable html interpolada como tal</p>
+                <div ng-bind-html="$ctrl.sTexto"></div>
+            </article>
+            
+        </div>
+        <div class="row">
+            <div id="marron" class="col-5 compacto" ng-mouseenter="$ctrl.ratonEvento($event)" 
+                                        ng-mouseleave="$ctrl.ratonEvento($event)">
+            </div>
+        </div>
+        <div class="row espacio"></div>
+
+        <div class="row">
+                <div id="claro" class="col-5 claro" ng-mouseenter="$ctrl.ratonEvento($event)" 
+                                            ng-mouseleave="$ctrl.ratonEvento($event)">
+                    <p id="p_claro">Pasa el ratón para conocer más información</p>
+                </div>
+                <div class="col-5" ng-show="$ctrl.isVisible">
+                    <p>
+                        Esta información se mostrará unicamente cunndo el ratón este en la zona de color
+                    </p>
+                </div>
+       </div>
+    
+    </div>
+    
+</body>
+</html>
