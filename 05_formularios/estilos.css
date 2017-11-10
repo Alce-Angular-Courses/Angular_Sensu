@@ -1,0 +1,12 @@
+.error {
+    background-color: palegoldenrod;
+    color: maroon
+}
+
+.fondo-arti {
+    background-color: aquamarine
+}
+
+.alto {
+    min-height: 20rem;
+}

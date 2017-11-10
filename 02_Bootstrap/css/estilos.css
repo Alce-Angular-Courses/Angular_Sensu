@@ -2,6 +2,18 @@
     border: 1px solid black;
 }
 
+.fondo{
+    background-color: palegoldenrod;
+}
+
+.fondo-arti {
+    background-color: aquamarine
+}
+
+.alto {
+    min-height: 20rem;
+}
+
 @media (min-width: 992px) { 
     .container {
         background-color: papayawhip;

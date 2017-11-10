@@ -4,17 +4,142 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./estilos.css">
+    <!-- Angular 1.6 -->
+    <script src="../../node_modules/angular/angular.js"></script>
+    <script src="./js/appModule.js"></script>
+    <script src="./js/appController.js"></script>
+    <title>Formularios</title>
 </head>
-<body>
-
-        
-
-    <div class="form-group">
-      <label for=""></label>
-      <input type="text|password|email|number|submit|date|datetime|datetime-local|month|color|range|search|tel|time|url|week"
-        class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
-      <small id="helpId" class="form-text text-muted">Help text</small>
+<body ng-app="appMain" ng-controller="MainController as $ctrl">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1>Formulario</h1> 
+      </div>
     </div>
+    <div class="row">
+      <form name="formulario" class="col-8" ng-submit="$ctrl.enviar()" novalidate>
+        <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input type="text" class="form-control" ng-model="$ctrl.oForm.nombre"
+            ng-model-options="{updateOn: 'blur'}"
+            name="nombre" id="nombre" aria-describedby="helpId" placeholder="" 
+            ng-required=true ng-minlength="4">
+          <small id="helpId" class="form-text text-muted">Escribe tu nombre completo</small>
+        </div>
+        <p class="error"
+        ng-show="formulario.nombre.$dirty && formulario.nombre.$invalid">
+        El campo nombre debe tener al menos 4 caracteres</p>
+        <div class="form-group">
+          <label for="">Correo electónico</label>
+          <input type="email" class="form-control" ng-model="$ctrl.oForm.email"
+            ng-model-options="{updateOn: 'blur'}"
+            name="email" id="email" aria-describedby="helpId" placeholder="" ng-required=true>
+          <small id="helpId" class="form-text text-muted">Indica un correo electónico válido</small>
+        </div>
+        <p class="error"
+        ng-show="formulario.email.$dirty && formulario.email.$invalid">
+        Es necesario un correo con el formato correcto</p>
+        <legend>Elige un turno</legend>
+        <div class="form-check" ng-repeat="turno in $ctrl.aTurnos">
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="turno" id="{{turno.id}}"
+                ng-value="turno" ng-model="$ctrl.oForm.turno" ng-change="$ctrl.selectCursos()">
+                {{turno.name}}
+            </label>
+        </div>
+
+<!--  Creación de los Radiobuttons uno a uno sin aprovechar la iteración del ngRepeat de Angular  
+
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="turno" id="turno-m" 
+            value="manana" ng-model="$ctrl.oForm.turno" ng-change="$ctrl.selectCursos()">
+            Mañana
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="turno" id="turno-t" 
+            value="tarde" ng-model="$ctrl.oForm.turno" ng-change="$ctrl.selectCursos()">
+            Tarde
+          </label>
+        </div> 
+ -->
+        <div class="form-group">
+            <label for="curso">Elige un curso</label>
+            <select class="form-control" name="curso" id="curso"
+             ng-model="$ctrl.oForm.curso" 
+             ng-options="curso as curso.titulo 
+                        for curso in $ctrl.aCursos | orderBy:'id'
+                        track by curso.id">
+            </select>
+          </div>
+ 
+        <legend>Selecciona las opciones adecuadas</legend>       
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" name="condiciones" 
+            id="condiciones" ng-model="$ctrl.oForm.isCondicionesOk"
+            ng-true-value="'Si'" ng-false-value="'No'">
+            He leido las condiciones
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" name="info"
+            id="info" ng-model="$ctrl.oForm.isInfoOk">
+            Quiero recibir información
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary"
+        ng-disabled="formulario.$invalid">Enviar</button>
+      </form>
+      <aside class="col-3 offset-1" ng-if="$ctrl.isEnviado">
+        <h2>Datos enviados</h2>
+        
+          <table class="table table-bordered table-striped">
+                <tr>
+                  <td scope="row">Nombre</td>
+                  <td>{{$ctrl.oForm.nombre}}</td>
+                </tr>
+                <tr>
+                  <td scope="row">Correo</td>
+                  <td>{{$ctrl.oForm.email}}</td>
+                </tr>
+                <tr>
+                  <td scope="row">Curso</td>
+                  <td>{{$ctrl.oForm.curso.titulo}}</td>
+                </tr>
+                <tr>
+                  <td scope="row">Turno</td>
+                  <td>{{$ctrl.oForm.turno.name}}</td>
+                </tr>
+          </table>
+          <p>En aceptar las condiciones has elegido {{$ctrl.oForm.isCondicionesOk}}</p>
+          <p>En recibir información has elegido {{$ctrl.oForm.isInfoOk? 'Si' : 'No'}}</p>
+          <p>
+              <button type="button" class="btn btn-info" 
+              ng-click="$ctrl.confirmar()">Confirmar</button>
+          </p>
+          
+        
+      </aside>
+      <div class="col-12">
+        <ul>
+          <li>Validez: {{formulario.$valid}}</li>
+          <li>Validez nombre: {{formulario.nombre.$valid}}</li>
+          <li>Validez correo: {{formulario.email.$valid}}</li>
+        </ul>
+        <hr>
+        {{formulario | json}}
+      </div>
+
+    </div>
+  </div>
+
 </body>
 </html>
