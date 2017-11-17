@@ -1,0 +1,16 @@
+<div class="card mb-3">
+    <div class="card-header">
+       Componente Padre
+    </div>
+    <div class="card-body">
+        <div class="form-group">
+          <label for="nombre">Nombre del hijo</label>
+          <input type="text" ng-model="$ctrl.oDatos.nombre"
+            class="form-control" name="nombre" id="nombre" placeholder="">
+        </div>
+        <app-hijo datos="$ctrl.oDatos" name="$ctrl.oDatos.nombre"></app-hijo>
+    </div>
+    <div class="card-footer text-muted">
+        El hijo se llama {{$ctrl.oDatos.nombre}}
+    </div>
+</div>

@@ -1,0 +1,12 @@
+angular.module("appModule", [
+    'sharedModule'
+])
+
+
+
+
+
+
+
+        
+

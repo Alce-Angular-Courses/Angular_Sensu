@@ -1,0 +1,14 @@
+<div class="componente">
+    <h2>componente padre</h2>
+
+    <input type="text" 
+    placeholder="DIme tu nombre"
+    ng-model = "$ctrl.oDatos.sName">
+
+    <app-hijo nombre = "$ctrl.oDatos.sName"></app-hijo>
+
+    <p>{{$ctrl.oDatos.sName}}</p>
+    <p>{{$ctrl.aviso}}</p>    
+
+</div>
+

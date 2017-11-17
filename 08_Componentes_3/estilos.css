@@ -1,0 +1,14 @@
+footer {
+    border-top: silver 1px solid;
+}
+.aviso {
+    cursor: pointer;
+    color: blue;
+}
+
+.componente {
+    padding: 1em;
+    margin: 1em;
+    border: solid 1px maroon;
+
+}

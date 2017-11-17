@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        $(function() {
+            // Handler for .ready() called.
+            var element = $('#p1');
+            console.dir(element[0])
+
+            var elementjs = document.querySelector('#p2')
+            console.dir(elementjs)
+
+            element.append(' <b>esto lo añadio JQuery</b>')
+
+            elementjs.innerHTML +=" <b>esto lo añadio JS</b>"
+
+        }); 
+    </script>
+    <title>Ejemplo JQ</title>
+
+</head>
+<body>
+    <p id="p1">Prueba 1</p>
+    <p id="p2">Prueba 2</p>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./css/estilos.css">
+    <!-- Angular 1.6 -->
+    <script src="../../node_modules/angular/angular.js"></script>
+    <script src="./js/appModule.js"></script>
+    <script src="./js/appController.js"></script>
+    <script src="./js/appDirectivas.js"></script>
+    <title>Directivas propias</title>
+</head>
+<body ng-app="appMain" ng-controller="MainController as $ctrl">
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>Fuera de la directiva</h1>
+            <p>Hola {{$ctrl.name}}</p>
+        </div>
+        <div class="col">
+            <p id="p1" class="verde" mi-directiva></p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
