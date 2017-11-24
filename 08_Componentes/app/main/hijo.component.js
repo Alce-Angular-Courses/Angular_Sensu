@@ -1,9 +1,16 @@
 class HijoController {
     
-    constructor () {}
+    constructor ($scope) {
+        this.$scope = $scope;
+    }
     $onInit() {
-
+        console.log(this)
     };
+
+    borrar() {
+        this.sName = ""
+        this.$scope.$emit("PulsadoBorrar")
+    }
 }
     
     

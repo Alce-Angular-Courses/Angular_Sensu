@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es"> 
+
+      <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Storage de Tareas</title>
+        <meta name="description" content="Local Storage en Angula JS">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+         <!-- Angular 1.6 -->
+        <script src="../../node_modules/angular/angular.js"></script>
+        <script src="../node_modules/angular-local-storage/dist/angular-local-storage.js"></script>
+        <!-- Scripts de la aplicación -->
+        <script src="./app/appModule.js"></script>
+        <script src="./app/appController.js"></script>
+    </head>
+
+    <body ng-app="appMain" ng-controller= "AppController as $ctrl">
+		<![endif]-->
+        
+            <div class="container">
+                <div class="row">
+                        <header class="col-xs-8 col-xs-offset-2">
+                            <h1>Tareas</h1>       
+                        </header>      
+                </div>
+        
+                <div class="row">
+                    <article class="col-xs-8 col-xs-offset-2">
+                        
+                        <form role="form" ng-submit="$ctrl.addTarea()">
+                            <div class="input-group">
+                                <input type="text" ng-model="$ctrl.sTarea" placeholder="Describe una tarea" 
+                                        class="form-control">
+                                <span class="input-group-btn">
+                                    <input type="submit" class="btn btn-primary" value="Añadir">
+                                </span>
+                            </div>
+                        </form>
+                        
+                        <div class="input-group" ng-repeat="sTarea in $ctrl.aTareas">
+                                <input type="text" ng-model="sTarea" class="form-control">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-danger" ng-click="$ctrl.eliminarTarea($index)"
+                                            aria-label="Eliminar">X</button>
+                                </span>
+                        </div>    
+                    </article>
+                </div> <!--Fin de la fila del articulo-->
+        
+                <div class="row">
+                    <footer class="col-xs-8 col-xs-offset-2"></footer>    
+                </div>
+            </div> <!-- Fin del container-->
+    </body>
+
+</html>

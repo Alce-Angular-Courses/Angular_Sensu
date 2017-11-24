@@ -1,6 +1,15 @@
 class PadreController {
     
-        constructor () {}
+        constructor ($scope) {
+            this.$scope = $scope
+
+            this.$scope.$on("PulsadoBorrar", () => {
+                this.oDatos = {} 
+            })
+
+        }
+
+
         $onInit() {
             this.oDatos = {}
         };
