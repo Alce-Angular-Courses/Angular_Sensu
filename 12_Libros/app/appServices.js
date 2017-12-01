@@ -9,6 +9,12 @@ angular.module("appMain")
     ]
 
     this.buscar = (clave) => {
-        return this.aLibros
+        return new Promise (
+            (resolve, reject) => {
+               setTimeout(() => {
+                    resolve(this.aLibros)
+                },2000) 
+            }
+        )
     }
 })

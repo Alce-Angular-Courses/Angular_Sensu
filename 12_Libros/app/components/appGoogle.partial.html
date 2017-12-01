@@ -1,4 +1,7 @@
 <article class="col">
+    <head>
+        <h2>Busqueda en Google</h2>
+    </head>
     <form>
         <p>
             <label for="clave">Clave de búsqueda</label>
@@ -10,8 +13,8 @@
                 ng-disabled="!$ctrl.clave">Buscar</button>
         </p>
     </form>
-    <div>
-        <p class="h4">Resultados acerca de {{$ctrl.clave}}</p>
+    <div ng-if="$ctrl.aLibros.length">
+        <p class="h4">Resultados acerca de {{$ctrl.claveTitle}}</p>
         <ul class="list-group">
             <li class="list-group-item"
                 ng-repeat="libro in $ctrl.aLibros track by $index">{{libro}}</li>

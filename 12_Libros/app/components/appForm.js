@@ -1,6 +1,7 @@
 class FormController {
     
-        constructor (LibrosMock) {
+        constructor ($scope, LibrosMock) {
+            this.$scope = $scope;
             this.LibrosMock = LibrosMock
         }
         $onInit () { 
@@ -9,8 +10,17 @@ class FormController {
         }
 
         buscar () {
-            this.aLibros = this.LibrosMock.buscar(this.clave)
-            this.clave = '';         
+             
+            this.LibrosMock.buscar(this.clave)
+            .then(
+                response => {
+                    this.aLibros = response
+                    console.log(this.aLibros)
+                    this.clave = ''; 
+                    this.$scope.$digest()
+                }, // se ejecuta si la promesa se resuelve
+                (error) => {console.log(error)} // se ejecuta si la promesa es rechazada
+            )      
         }
     }
     

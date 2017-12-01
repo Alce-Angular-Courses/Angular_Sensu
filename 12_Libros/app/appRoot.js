@@ -18,6 +18,7 @@ angular.module("appMain")
     </div>
     <div class="container">    
         <app-form class="row"></app-form>
+        <app-google class="row"></app-google>
         <app-pie class="row"></app-pie>
     </div>
     `
