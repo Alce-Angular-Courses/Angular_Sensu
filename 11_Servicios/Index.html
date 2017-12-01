@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es"> 
+
+      <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Hola Mundo</title>
+        <meta name="description" content="Hola Mundo con Angula JS">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+         <!-- Angular 1.6 -->
+        <script src="../../node_modules/angular/angular.js"></script>
+        <script src="../../node_modules/angular-i18n/angular-locale_fr-fr.js"></script>        
+        <script src="../../node_modules/angular-i18n/angular-locale_es-es.js"></script>        
+        <!-- Scripts de la aplicación -->
+        <script src="./appModule.js"></script>
+        <script src="./appController.js"></script>
+        <script src="./appInjectables.js"></script>
+    </head>
+
+    <body ng-app="appMain" ng-controller="AppController as $ctrl">
+    <!--elimino ng-controller="AppController as $ctrl" -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <p>Inyección de dependencias</p>
+                <p>Hola {{$ctrl.sName}}</p>
+                <p>Saludos de {{$ctrl.datosEmpresa.formador}}</p>
+                <p>{{$ctrl.datosEmpresa.empresa}} - {{$ctrl.dFecha | date:"fullDate"}}</p>
+            </div>
+        </div>
+    </div>
+    </body>
+
+</html>

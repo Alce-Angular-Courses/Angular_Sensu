@@ -1,0 +1,21 @@
+<article class="col">
+    <form>
+        <p>
+            <label for="clave">Clave de búsqueda</label>
+            <input id="clave" type="text" ng-model="$ctrl.clave">
+        </p>
+        <p>
+            <button class= "btn btn-primary"
+                ng-click="$ctrl.buscar()"
+                ng-disabled="!$ctrl.clave">Buscar</button>
+        </p>
+    </form>
+    <div>
+        <p class="h4">Resultados</p>
+        <ul class="list-group">
+            <li class="list-group-item"
+                ng-repeat="libro in $ctrl.aLibros track by $index">{{libro}}</li>
+        </ul>
+    </div>
+
+</article>  
