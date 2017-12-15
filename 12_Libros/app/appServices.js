@@ -18,3 +18,11 @@ angular.module("appMain")
         )
     }
 })
+.service("LibrosGoogle", ['$http', function($http) {
+
+    this.url = 'https://www.googleapis.com/books/v1/volumes?q=intitle:';        
+    this.buscar = (clave) => {
+        let url = this.url + clave
+        return $http.get(url)
+    }
+}])
